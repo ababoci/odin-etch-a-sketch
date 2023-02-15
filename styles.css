@@ -1,0 +1,20 @@
+html {
+    height: 100%;
+  }
+
+  body {
+    height: calc(100% - 1em);
+  }
+
+.container {
+    /* border: 2px solid #000; */
+    /* margin: 5px; */
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid {
+    flex-basis: 25%; 
+    background-color: red;
+}

@@ -1,6 +1,8 @@
-container = document.querySelector(".container")
+const container = document.querySelector(".container")
 
-colorSelector = document.querySelector("#penColor")
+const colorSelector = document.querySelector("#penColor")
+
+let mousedown = false;
 
 function changeColor(gridBlock) {
     gridBlock.style.backgroundColor = colorSelector.value;
@@ -13,19 +15,32 @@ function createGrid(gridSize) {
         container.append(new_div);
     }
     
-    gridBlocks = document.querySelectorAll(".grid")
+    let gridBlocks = document.querySelectorAll(".grid")
     
     gridBlocks.forEach((gridBlock) => {
 
         gridBlock.style.flexBasis = `${100/gridSize}%`;
     
-        gridBlock.addEventListener('mouseover', (event) => {
-            changeColor(gridBlock);
+        gridBlock.addEventListener('mousedown', (event) => {
+            mousedown = true;
     
+        })
+        gridBlock.addEventListener('mouseup', (event) => {
+            mousedown = false;
+    
+        })
+        gridBlock.addEventListener('mouseover', (event) => {
+            if (mousedown === true) {
+                changeColor(gridBlock);
+            }
         })
     })
 
 }
+
+container.addEventListener('mouseleave', (event) => {
+    mousedown = false;
+})
 
 
 redefineAreaButton = document.querySelector(".redefineAreaButton")

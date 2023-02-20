@@ -38,3 +38,8 @@ html {
     flex-basis: 6.25%; 
     background-color: rgb(255, 250, 182);
 }
+
+.rainbowColors {
+  display: flex;
+  justify-content: center;
+}
